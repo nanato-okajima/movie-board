@@ -10,9 +10,9 @@
     <div class="card-body">
         <h5 class="mt-0">{{.Post.Message}}</h5>
     </div>
-</div>
+</dic>
 
-<form action="/postt?pid={{.Post.ID}}" method="post">
+<form action="/post?pid={{.Post.ID}}" method="post">
     <div class="form-group mt-4">
         <label for="message" class="h6">New Comment:</label>
         <textarea name="message" id="message" class="form-control"></textarea>
@@ -23,7 +23,7 @@
 {{range $n,$Itm := .Clist}}
 <div class="media border m-1 p-2">
     <div class="media-body">
-        <h6 class="mt-0">{{$Itm.Comment.Message}}</h6>
+        <h6 class="mt-0">{{$Itm.Comment.Message}}({{$Itm.Name}})</h6>
     </div>
 </div>
 {{end}}
