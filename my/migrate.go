@@ -2,25 +2,22 @@ package my
 
 import (
 	"fmt"
-	"os"
+	"log"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+
+	"youtube/config"
 )
 
-func Migrate() {
-	host := os.Getenv("DB_HOST")
-	user := os.Getenv("POSTGRES_USER")
-	password := os.Getenv("POSTGRES_PASSWORD")
-	dbname := os.Getenv("POSTGRES_DB")
-	port := os.Getenv("POSTGRES_PORT")
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Tokyo", host, user, password, dbname, port)
+var DB *gorm.DB
 
-	db, er := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	if er != nil {
-		fmt.Println(er)
-		return
+func init() {
+	conf := config.DB
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Tokyo", conf.Host, conf.User, conf.Password, conf.DBName, conf.Port)
+	DB, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	if err != nil {
+		log.Fatal(dsn + "database can't connect")
 	}
-
-	db.AutoMigrate(&User{}, &Group{}, &Post{}, &Comment{})
+	DB.AutoMigrate(&User{}, &Post{}, &Group{}, &Comment{})
 }
