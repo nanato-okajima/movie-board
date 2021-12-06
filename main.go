@@ -3,14 +3,19 @@ package main
 import (
 	"net/http"
 
+
 	"github.com/gorilla/sessions"
 )
+
+
+
 
 // session variable
 var sesName = "mvboard-session"
 var cs = sessions.NewCookieStore([]byte("secret-key-1234"))
 
 var envpath = "./.env"
+
 
 func main() {
 	mux := http.NewServeMux()
@@ -30,4 +35,5 @@ func main() {
 	}
 
 	server.ListenAndServe()
+
 }

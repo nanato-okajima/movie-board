@@ -1,5 +1,5 @@
 {{ template "header" .}}
-<p>{{ .Message}}</p>
+<p>{{ .Message }}</p>
 <h4 class="mt-5">Post.</h4>
 <form action="/home" method="post">
     <input type="hidden" name="form" value="post">
@@ -34,8 +34,8 @@
         <input type="text" class="form-control" id="name2" name="name">
     </div>
     <div class="form-group mt-4">
-        <label for="message" class="h6">Message:
-        <input type="text" class="form-control" id="name2" name="name">
+        <label for="message" class="h6">Message:</label>
+        <input type="text" class="form-control" id="message" name="message">
     </div>
     <button type="submit" class="btn btn-primary mb-2">Post group.</button>
 </form>
@@ -49,4 +49,5 @@
     </div>
 </div>
 {{end}}
+
 {{ template "footer" .}}

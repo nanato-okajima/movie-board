@@ -9,10 +9,13 @@
     </a>
     <div class="media-body">
         <h5 class="mt-0">{{$Itm.Address}}</h5>
+
         {{$Itm.Message}}
+
     </div>
 </div>
 {{end}}
+
 
 <h4 class="mt-4">Group list.</h4>
 {{range $n,$Itm := .Glist}}
