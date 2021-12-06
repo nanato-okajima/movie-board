@@ -1,8 +1,8 @@
 {{ template "header" .}}
-<p>{{ .Message}}</p>
+<p>{{ .Message }}</p>
 <h4 class="mt-5">Post.</h4>
 <form action="/home" method="post">
-    <input type="hidden" name="form" vlaue="post">
+    <input type="hidden" name="form" value="post">
     <div class="form-group mt-4">
         <label for="address" class="h6">Youtube share address:</label>
         <input type="text" class="form-control" id="address" name="address" placeholder="https://youtu.be/xxxx">
@@ -26,16 +26,16 @@
 </div>
 {{end}}
 
-<h4 class="mt-5">Group lsit</h4>
-<form action="/hoem" method="post">
+<h4 class="mt-5">Group list</h4>
+<form action="/home" method="post">
     <input type="hidden" name="form" value="group">
     <div class="form-group mt-4">
         <label for="name2" class="h6">New Group:</label>
         <input type="text" class="form-control" id="name2" name="name">
     </div>
     <div class="form-group mt-4">
-        <label for="message" class="h6">Message:
-        <input type="text" class="form-control" id="name2" name="name">
+        <label for="message" class="h6">Message:</label>
+        <input type="text" class="form-control" id="message" name="message">
     </div>
     <button type="submit" class="btn btn-primary mb-2">Post group.</button>
 </form>
@@ -44,8 +44,10 @@
 {{range $n,$Itm := .Glist}}
 <div class="media border m-1 p-2">
     <div class="media-body">
-        <a href="/group?gid={{$Itm.ID}"><h5 class="mt-0">{{$Itm.Name}}</h5></a>
+        <a href="/group?gid={{$Itm.ID}}"><h5 class="mt-0">{{$Itm.Name}}</h5></a>
         {{$Itm.Message}}
     </div>
 </div>
 {{end}}
+
+{{ template "footer" .}}

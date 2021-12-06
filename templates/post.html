@@ -3,9 +3,9 @@
 
 <h4 class="mt-4">Post movie.</h4>
 
-<dic class="card-m-1 p-2 text-center">
+<div class="card m-1 p-2 text-center">
     <div>
-        <iframe width="560" height="315" src="http://www.youtube.com/embed/{{.Post.Address}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/{{.Post.Address}}" frameborder="0" width="560" height="315" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="card-body">
         <h5 class="mt-0">{{.Post.Message}}</h5>
